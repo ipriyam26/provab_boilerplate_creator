@@ -1,0 +1,16 @@
+import { {{ typeorm_imports|join(', ') }} } from "typeorm";
+import { {{ graphql_imports|join(', ') }} } from "@nestjs/graphql";
+import { {{ class_validator_imports|join(', ') }} } from "class-validator";
+import { BaseEntity } from "../base.entity";
+
+@InputType("{{ input_type_name }}")
+@ObjectType()
+@Entity("{{ entity_name }}")
+export class {{ class_name }} extends BaseEntity {
+{% for column in columns %}
+{{ column.validators|join('\n')}}
+@Field({{ column.graphql_options|default('') }})
+@Column({ {{ column.typeorm_options }} })
+{{ column.name }}: {{ column.ts_type }};
+{% endfor %}
+}

@@ -1,0 +1,10 @@
+import { Field, Int, ID, InputType } from "@nestjs/graphql";
+import { BaseSorting } from "../base.sorting";
+
+@InputType()
+export class {{ class_name }}Sorting {
+{% for column in columns %}
+  @Field((type) => BaseSorting, { nullable: true })
+  {{ column.name }}?: BaseSorting;
+{% endfor %}
+}

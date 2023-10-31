@@ -1,0 +1,5 @@
+COLUMN_PARSER = r"`(\w+)`\s+(.*)"
+TABLE_PARSER = r"CREATE TABLE `(\w+)`\s*\(([\s\S]+?)\)\s*[^)]*;"
+ENUM_SET_PARSER = r"(enum|set)\((.*)\)"
+DOUBLETYPE_LENGTH_DECIMAL_PARSER = r"(\w+)(?:\((\d+),(\d+)\))?"
+GENERICTYPE_LENGTH_PARSER = r"(\w+)(?:\((.*)\))?"

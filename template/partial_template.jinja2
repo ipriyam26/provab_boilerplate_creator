@@ -1,0 +1,10 @@
+import { Field, ObjectType, InputType } from "@nestjs/graphql";
+
+@InputType("{{ input_type_name }}")
+@ObjectType()
+export class {{ class_name }}Partial {
+{% for column in columns %}
+  @Field({ nullable: true })
+  {{ column.name }}?: {{ column.ts_type }};
+{% endfor %}
+}

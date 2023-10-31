@@ -1,0 +1,10 @@
+import { BaseFilter } from "./../base.filter";
+import { Field, InputType } from "@nestjs/graphql";
+
+@InputType()
+export class {{ class_name }}Filter {
+{% for column in columns %}
+  @Field((type) => BaseFilter, { nullable: true })
+  {{ column.name }}: BaseFilter;
+{% endfor %}
+}

@@ -1,0 +1,17 @@
+import { Resolver } from "@nestjs/graphql";
+import { BaseResolver } from "../base.resolver";
+
+
+@Resolver((of) => {{ class_name }})
+export class {{ class_name }}Resolver extends BaseResolver(
+  {{ class_name }},
+  {{ class_name }}Service,
+  {{ class_name }}Partial,
+  {{ class_name }}Filter
+) {
+  constructor(
+    private readonly {{ class_name }}Service: {{ class_name }}Service
+  ) {
+    super({{ class_name }}Service);
+  }
+}
